@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="form-group col-xs-2">
+        <label for="">{{vm.config.labelEsquerda}}</label>
+        <input type="text" name="q" class="form-control" placeholder="Pesquisar..." ng-model="vm.pesquisaEsquerda">
+        <select id="{{vm.config.id}}" multiple class="form-control multiple" ng-change="vm.changeLeft()" ng-model="vm.markedLeft" ng-dblclick="vm.transferir(vm.opcoesEsquerda, vm.opcoesDireita, vm.markedLeft)" ng-options="vm.labelOpcao(opcao) for opcao in (filtradosEsquerda = (vm.opcoesEsquerda | filter:vm.filtroPesquisaEsquerda))">
+        </select>
+    </div>
+    <div class="form-group col-xs-1 picklist-controls">
+        <button ng-click="vm.transferir(vm.opcoesEsquerda, vm.opcoesDireita, vm.markedLeft)" type="button" class="btn btn-block"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        <button ng-click="vm.transferir(vm.opcoesEsquerda, vm.opcoesDireita, filtradosEsquerda)" type="button" class="btn btn-block"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+        <button ng-click="vm.transferir(vm.opcoesDireita, vm.opcoesEsquerda, vm.markedRight)" type="button" class="btn btn-block"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+        <button ng-click="vm.transferir(vm.opcoesDireita, vm.opcoesEsquerda, filtradosDireita)" type="button" class="btn btn-block"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+    </div>
+    <div class="form-group col-xs-2">
+        <label for="">{{vm.config.labelDireita}}</label>
+        <input type="text" name="q" class="form-control" placeholder="Pesquisar..." ng-model="vm.pesquisaDireita">
+        <select id="{{vm.config.id}}_to" multiple class="form-control multiple" ng-change="vm.changeRight()" ng-model="vm.markedRight" ng-dblclick="vm.transferir(vm.opcoesDireita, vm.opcoesEsquerda, vm.markedRight)" ng-options="vm.labelOpcao(opcao) for opcao in (filtradosDireita = (vm.opcoesDireita | filter:vm.filtroPesquisaDireita))">
+        </select>
+    </div>
+</div>
